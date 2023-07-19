@@ -1,6 +1,5 @@
 # Memory and chat bots
 import os
-import pprint # to make it easier to read data
 from dotenv import load_dotenv
 
 # load in the env variables

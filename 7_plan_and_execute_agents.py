@@ -4,7 +4,6 @@
 # creates an executor that will use the tools to try and get the answer
 
 import os
-import pprint # to make it easier to read data
 from dotenv import load_dotenv
 
 # load in the env variables

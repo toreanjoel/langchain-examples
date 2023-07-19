@@ -1,6 +1,5 @@
 # Storing and Retrieving Chat history
 import os
-import pprint # to make it easier to read data
 from dotenv import load_dotenv
 
 # load in the env variables
