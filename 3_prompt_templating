@@ -1,0 +1,39 @@
+# Prompt templating and chaining in Langchain
+# Ways to reproduce results with formatted prompts
+import os
+from dotenv import load_dotenv
+
+# load in the env variables
+load_dotenv()
+
+# get the env variable relevant and needed
+os.getenv('OPENAI_API_KEY')
+
+#import PromptTemplate module from langchain
+from langchain import PromptTemplate
+from langchain.llms import OpenAI
+from langchain.chains import LLMChain
+
+# create a template, interpolated by placeholder
+template = """
+    You are a naming consultant for a new companies, what is a good name for a company called {company}
+    that makes {product}?
+"""
+
+# setup the prompt template
+prompt = PromptTemplate.from_template(template)
+
+# instansiate and setup the LLM with openAI class
+llm = OpenAI(temperature=0.1)
+
+# initialize the chain = prompt + llm
+# this will chain the prompt and the variables that was set with the format and send to LLM model
+chain = LLMChain(llm=llm, prompt=prompt)
+
+# Run the LLM by passing key value pair matching to the template variables
+print(chain.run(
+    {
+        'company': "GameGear",
+        'product': "gaming peripherals"
+    }
+))
