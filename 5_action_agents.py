@@ -1,8 +1,8 @@
 # Action agents
+# WHEN TO USE: Shorter tasks, you have a clear idea what to do, as info comes in to work towards the goal
 # chain a series of calls and other tools based on user inputs to get to an answer
 # Two types of agents, action agents / plan and execute agents
 # Action agents: Take action based on all the data of the prompt up till that point
-# Plan-and_execute agents: Take action up front regardless of the outputs potentially that could result from prompts
 
 import os
 import pprint # to make it easier to read data
@@ -33,7 +33,7 @@ prompt = "What was the year Nelson Mandela was born? what is that year raised to
 # setup the tools we will be using to get the answer
 # NOTE: Some tools use an LLM so we need to pass the LLM along with the tools to help as a dependecy
 # as some have the LLM create code that are executable
-tools = load_tools(["wikipedia", "llm-math"], llm=llm) # the answer from get_all_tool_names
+tools = load_tools(["llm-math", "wikipedia"], llm=llm) # the answer from get_all_tool_names
 
 # agent setup
 # different agent types (7)
